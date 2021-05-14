@@ -1,0 +1,10 @@
+node_modules
+建造
+.idea /
+.vscode /
+.env
+应用程序/ config.js
+* .bak
+覆盖范围/
+task.yaml
+dist/
