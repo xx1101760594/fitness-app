@@ -8,7 +8,7 @@ const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plug
 
 module.exports = {
     // 入口 引出的js文件
-    entry: './src/js/index.js',
+    entry: './src/js/home.js',
 
     // 出口  生成的js文件
     output: {
@@ -28,7 +28,7 @@ module.exports = {
     // 插件
     plugins: [
         new HtmlWebpackPlugin({   //配置html打包的插件
-            template: './src/index.html'         //以哪个html文件作为打包的模板
+            template: './src/page/home.html'         //以哪个html文件作为打包的模板
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].css' // 输出到css文件夹里
