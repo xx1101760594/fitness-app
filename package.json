@@ -4,14 +4,15 @@
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-        "serve": "webpack serve",
-        "build": "webpack"
+        "serve": "cross-env NODE_ENV=development webpack serve",
+        "build": "cross-env NODE_ENV=production webpack"
     },
     "devDependencies": {
         "babel-core": "^6.26.3",
         "babel-loader": "7.1.5",
         "babel-preset-es2015": "^6.24.1",
         "clean-webpack-plugin": "^4.0.0-alpha.0",
+        "cross-env": "^7.0.3",
         "css-loader": "^5.2.4",
         "file-loader": "^6.2.0",
         "html-loader": "1.3.2",
