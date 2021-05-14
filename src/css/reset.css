@@ -1,0 +1,29 @@
+/* 网页初始化设置 */
+body,button,form,h1,h2,h3,h4,h5,h6,input,li,p,td,textarea,th,ul {
+  margin:0;
+  padding:0;
+}  
+h1,h2,h3,h4,h5,h6 {
+  font-size:100%;
+}  
+body {
+  font-size:14px;
+  color: #666;
+  background: #f2f2f2;
+}  
+ul {
+  list-style:none;
+}  
+a {
+  color: #666;
+  text-decoration:none;
+}  
+a:hover {
+  text-decoration:none;
+}  
+img {
+  border:0;
+}  
+button,input,select,textarea {
+  font-size:100%;
+}  
