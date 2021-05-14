@@ -5,15 +5,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 //将css文件及代码进行极致压缩s
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
+//自动清除dist 
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     // 入口 引出的js文件
-    entry: './src/js/home.js',
+    entry: {
+        home:'./src/js/home.js',
+        login:'./src/js/login.js',
+        pref:'./src/js/pref.js'
+    },
 
     // 出口  生成的js文件
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/bundle.js',
+        filename: 'js/[name].js',
         publicPath: './'
     },
     //编译器 loader
@@ -28,12 +34,25 @@ module.exports = {
     // 插件
     plugins: [
         new HtmlWebpackPlugin({   //配置html打包的插件
-            template: './src/page/home.html'         //以哪个html文件作为打包的模板
+            template: './src/page/home.html',         //以哪个html文件作为打包的模板
+            filename:'home.html',
+            chunks:['home']                        //该html文件使用了哪些入口js文件
+        }),
+        new HtmlWebpackPlugin({   //配置html打包的插件
+            template: './src/page/login.html',         //以哪个html文件作为打包的模板
+            filename:'login.html',
+            chunks:['login']
+        }),
+        new HtmlWebpackPlugin({   //配置html打包的插件
+            template: './src/page/pref.html',         //以哪个html文件作为打包的模板
+            filename:'pref.html',
+            chunks:['pref']
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].css' // 输出到css文件夹里
         }),
-        new OptimizeCssAssetsWebpackPlugin()
+        new OptimizeCssAssetsWebpackPlugin(),
+        new CleanWebpackPlugin()
     ],
     // 环境
 
@@ -45,7 +64,7 @@ module.exports = {
         port: 8080,  // 端口  8080 80  8081 8082
         open: true, // 自动打开服务
         publicPath: '/', // 静态资源查找路径
-        openPage: 'index.html', // 打开的页面
+        openPage: 'home.html', // 打开的页面
     },
     target: 'web', // 目标是浏览器
 
