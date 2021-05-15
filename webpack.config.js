@@ -82,7 +82,7 @@ module.exports = {
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'), // 启动服务器目录
         compress: true, // 启动gzip
-        port: 8080, // 端口  8080 80  8081 8082
+        port: 10086, // 端口  8080 80  8081 8082
         open: true, // 自动打开服务
         publicPath: '/', // 静态资源查找路径
         openPage: 'advertising.html', // 打开的页面

@@ -1,0 +1,135 @@
+/* 登录页设置 */
+body {
+    background: url('../img/2.png') no-repeat;
+    background-size: 100%;
+}
+
+.topBox {
+    width: auto;
+    height: 191px;
+}
+
+.topBox .box1 {
+    position: absolute;
+    top: 29px;
+    right: 20px;
+    width: 80px;
+    height: 28px;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+}
+
+.topBox .box2 {
+    position: absolute;
+    left: 32px;
+    top: 82px;
+    width: 210px;
+    height: 40px;
+    color: #fff;
+    font-size: 28px;
+}
+
+.topBox .box3 {
+    position: absolute;
+    left: 32px;
+    top: 130px;
+    width: 250px;
+    height: 22px;
+    color: rgba(255, 255, 255, .6);
+}
+
+.inpBox {
+    width: calc(100% - 64px);
+    height: auto;
+    margin: auto;
+    position: relative;
+}
+
+.inpBox select {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    border: 0;
+    outline: none;
+    background: rgba(250, 250, 250, .0);
+    color: rgba(250, 250, 250);
+    font-size: 16px;
+}
+
+.inpBox select option {
+    background: rgba(0, 0, 0, .5);
+}
+
+.inpBox input {
+    width: 100%;
+    height: 50px;
+    line-height: 20px;
+    background: rgba(250, 250, 250, .5);
+    border-radius: 25px;
+    margin-bottom: 19px;
+    text-indent: 20px;
+    border: 0;
+    font-size: 16px;
+    outline: none;
+}
+
+#fistIpn {
+    text-indent: 74px;
+}
+
+.inpBox input::placeholder {
+    color: rgba(250, 250, 250, .7);
+}
+
+.inpBox .yBox {
+    display: flex;
+}
+
+.inpBox .yBox1 {
+    width: 213px;
+}
+
+.inpBox .yBox2 {
+    width: 123px;
+    height: 50px;
+    background: #fff;
+}
+
+.inpBox button {
+    width: 100%;
+    height: 50px;
+    line-height: 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    background-color: rgba(99, 255, 167, .5);
+    border: 0;
+    margin-bottom: 28px;
+    color: rgba(255, 255, 255);
+}
+
+.inpBox .tBox2 {
+    color: rgba(255, 255, 255, 100);
+    font-size: 14px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.inpBox .tBox2 img {
+    position: absolute;
+    top: -2px;
+    left: -25px;
+}
+
+.txBox {
+    width: 104px;
+    height: 22px;
+    color: rgba(255, 255, 255, 100);
+    font-size: 16px;
+    position: absolute;
+    left: calc(50% - 52px);
+    top: 85%;
+}
