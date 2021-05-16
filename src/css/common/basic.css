@@ -1,3 +1,23 @@
 /*
  * 可复用的公有布局
  */
+ /* 引用字体图标 */
+ @import url('../../fonts/iconfont.css');
+/* 字体设置 */
+.iconBox{
+    position: fixed;
+    top: calc(50% - 67px);
+    left:calc(50% - 100px);
+    padding: 50px 15px;
+    text-align: center;
+    background: rgba(0, 0, 0, .67);
+    width: 200px;
+    height: 200px;
+    line-height: 50px;
+    border-radius:15px ;
+    color: #fff;
+}
+.iconBox .text{
+    width: 200px;
+    font-size: 60px;
+}

@@ -6,13 +6,21 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 //将css文件及代码进行极致压缩s
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 //自动清除dist 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const {
+    CleanWebpackPlugin
+} = require('clean-webpack-plugin')
 
 module.exports = {
     // 入口 引出的js文件
     entry: {
+        // 公共的css
+        commonCss: './src/js/commonCss.js',
         // 公共的js
-        commonCss:'./src/js/commonCss.js',
+        dom: './src/js/common/dom.js',
+        http: './src/js/common/http.js',
+        utils: './src/js/common/utils.js',
+        // 第三方插件js
+        captcha: './src/lib/captcha-mini.js',
         // 自己的js
         home: './src/js/home.js',
         login: './src/js/login.js',
@@ -46,8 +54,32 @@ module.exports = {
                     }
                 }, 'css-loader', 'postcss-loader', 'less-loader']
             },
-            { test: /\.jpg|png|gif$/, loader: 'url-loader', options: { name: '[hash:8].[ext]', limit: 20 * 1024, esModule: false, outputPath: 'img' } },
-            { test: /\.html$/, loader: 'html-loader' }
+            {
+                test: /\.jpg|png|gif$/,
+                loader: 'url-loader',
+                options: {
+                    name: '[hash:8].[ext]',
+                    limit: 20 * 1024,
+                    esModule: false,
+                    outputPath: 'img'
+                }
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/, //配置iconfont文件打包
+                loader: 'file-loader',
+                options: {
+                    outputPath: 'fonts' //输出的目录
+                }
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',    
+                exclude: /node_modules/, 
+            }
         ]
     },
     // 插件
@@ -55,22 +87,22 @@ module.exports = {
         new HtmlWebpackPlugin({ //配置html打包的插件
             template: './src/page/home.html', //以哪个html文件作为打包的模板
             filename: 'home.html',
-            chunks: ['home','commonCss'] //该html文件使用了哪些入口js文件
+            chunks: ['home', 'commonCss', 'dom'] //该html文件使用了哪些入口js文件
         }),
         new HtmlWebpackPlugin({ //配置html打包的插件
             template: './src/page/login.html', //以哪个html文件作为打包的模板
             filename: 'login.html',
-            chunks: ['login','commonCss']
+            chunks: ['login', 'commonCss', 'dom', 'http', 'utils']
         }),
         new HtmlWebpackPlugin({ //配置html打包的插件
             template: './src/page/pref.html', //以哪个html文件作为打包的模板
             filename: 'pref.html',
-            chunks: ['pref','commonCss']
+            chunks: ['pref', 'commonCss', 'dom', 'http', 'captcha', 'utils']
         }),
         new HtmlWebpackPlugin({ //配置html打包的插件
             template: './src/page/advertising.html', //以哪个html文件作为打包的模板
             filename: 'advertising.html',
-            chunks: ['advertising','commonCss']
+            chunks: ['advertising', 'commonCss', 'dom']
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].css' // 输出到css文件夹里
@@ -85,7 +117,7 @@ module.exports = {
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'), // 启动服务器目录
         compress: true, // 启动gzip
-        port: 10086, // 端口  8080 80  8081 8082
+        port: 10086,// 端口  8080 80  8081 8082
         open: true, // 自动打开服务
         publicPath: '/', // 静态资源查找路径
         openPage: 'advertising.html', // 打开的页面
