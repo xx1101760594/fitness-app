@@ -11,6 +11,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
     // 入口 引出的js文件
     entry: {
+        // 公共的js
+        commonCss:'./src/js/commonCss.js',
+        // 自己的js
         home: './src/js/home.js',
         login: './src/js/login.js',
         pref: './src/js/pref.js',
@@ -52,22 +55,22 @@ module.exports = {
         new HtmlWebpackPlugin({ //配置html打包的插件
             template: './src/page/home.html', //以哪个html文件作为打包的模板
             filename: 'home.html',
-            chunks: ['home'] //该html文件使用了哪些入口js文件
+            chunks: ['home','commonCss'] //该html文件使用了哪些入口js文件
         }),
         new HtmlWebpackPlugin({ //配置html打包的插件
             template: './src/page/login.html', //以哪个html文件作为打包的模板
             filename: 'login.html',
-            chunks: ['login']
+            chunks: ['login','commonCss']
         }),
         new HtmlWebpackPlugin({ //配置html打包的插件
             template: './src/page/pref.html', //以哪个html文件作为打包的模板
             filename: 'pref.html',
-            chunks: ['pref']
+            chunks: ['pref','commonCss']
         }),
         new HtmlWebpackPlugin({ //配置html打包的插件
             template: './src/page/advertising.html', //以哪个html文件作为打包的模板
             filename: 'advertising.html',
-            chunks: ['advertising']
+            chunks: ['advertising','commonCss']
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].css' // 输出到css文件夹里

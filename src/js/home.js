@@ -1,1 +1,1 @@
-require('../css/home.css');
+require('../css/home.less');
