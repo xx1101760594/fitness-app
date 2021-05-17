@@ -22,19 +22,16 @@ document.ready(function (ev) {
         }
         // 判断验证码
         if (yzmDom.value.toLowerCase() != yzmNum) {
-            // textC.textContent = '请输入正确验证码';
             utils.toast(1, '请输入正确验证码');
             return
         }
         // 判断两次密码是否一致
         if (pwdDom.value != pwd1Dom.value) {
-            // textC.textContent = '两次密码不一致';
             utils.toast(1, '两次密码不一致');
             return
         }
         // 手机号格式
         if (!utils.testTell(tellDom.value)) {
-            // textC.textContent = '请输入正确的手机号';
             utils.toast(1, '请输入正确的手机号');
             return
         }
@@ -44,11 +41,19 @@ document.ready(function (ev) {
             password: pwd1Dom.value
         }
         $http.post('/users/add', data, res => {
-            // textC.textContent = '注册成功，请前往登录界面';
-            utils.toast(0, '注册成功，正在跳转登录页');
-            setTimeout(function () {
-                location.href = '../login.html'
-            }, 2000)
+            if (res.status === 0) {
+                utils.toast(0, '注册成功，正在跳转');
+                // 登录
+                $http.post('/users/login', data, res1 => {
+                    localStorage.setItem('user',res1.data.user)
+                    跳转首页
+                    setTimeout(function () {
+                        location.href = './home.html'
+                    }, 2000)
+                })
+            } else {
+                utils.toast(1, res.msg);
+            }
         })
 
 

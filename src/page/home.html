@@ -1,3 +1,52 @@
-你好啊！
-<h1>测试</h1>
-<div>主页</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主页</title>
+</head>
+
+<body>
+    <!-- 轮播图 -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="../img/index-swiper-bg1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../img/index-swiper-bg2.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="../img/index-swiper-bg3.jpg" alt=""></div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <main>
+        <div class="list-item dpflex">
+            <div class="greade  mr20 br15 pd15">
+                <p>排名</p>
+                <p class="rank"></p>
+            </div>
+            <div class="card br15 pd15">
+                <p>累积打卡<spam class="punchIn"></spam>天</p>
+                <div class="isPunch">今日打卡</div>
+            </div>
+        </div>
+        <div class="list-item1 dpflex">
+            <div class="data br15 mr20 pd15">
+                <p>运动数据</p>
+            </div>
+            <div class="badge br15 pd15">
+                <p>累积运动勋章</p>
+                <p class="insignia"><span class="insigniaNum"></span>枚</p>
+            </div>
+        </div>
+        <div class="list-item1 pd15 xl">
+            <p>课程训练</p>
+        </div>
+        <div class="list-item1 pd15 hw">
+            <p>户外跑步</p>
+        </div>
+    </main>
+
+</body>
+
+</html>

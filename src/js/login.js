@@ -32,8 +32,11 @@ document.ready(function (ev) {
                 // 用户数据存入localStorage
                 localStorage.setItem('user',JSON.stringify(user));
                 utils.toast(0,'登录成功');
-                // 跳转主页
-                location.href='../home.html'
+                // 两秒后跳转主页
+                setTimeout(function(){
+                    location.href='./home.html';
+                },2000)
+
             }else{
                 utils.toast(1,'密码错误');
             }

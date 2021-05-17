@@ -21,11 +21,14 @@ module.exports = {
         utils: './src/js/common/utils.js',
         // 第三方插件js
         captcha: './src/lib/captcha-mini.js',
+        swiper: './src/lib/swiper/swiper-bundle.js',
         // 自己的js
         home: './src/js/home.js',
         login: './src/js/login.js',
         pref: './src/js/pref.js',
-        advertising: './src/js/advertising.js'
+        advertising: './src/js/advertising.js',
+        about: './src/js/about.js',
+        exercise: './src/js/exercise.js'
     },
 
     // 出口  生成的js文件
@@ -77,17 +80,27 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                loader: 'babel-loader',    
-                exclude: /node_modules/, 
+                loader: 'babel-loader',
+                exclude: /node_modules/,
             }
         ]
     },
     // 插件
     plugins: [
         new HtmlWebpackPlugin({ //配置html打包的插件
+            template: './src/page/exercise.html', //以哪个html文件作为打包的模板
+            filename: 'exercise.html',
+            chunks: ['exercise', 'commonCss', 'dom', 'utils'] //该html文件使用了哪些入口js文件
+        }),
+        new HtmlWebpackPlugin({ //配置html打包的插件
+            template: './src/page/about.html', //以哪个html文件作为打包的模板
+            filename: 'about.html',
+            chunks: ['about', 'commonCss', 'dom', 'utils'] //该html文件使用了哪些入口js文件
+        }),
+        new HtmlWebpackPlugin({ //配置html打包的插件
             template: './src/page/home.html', //以哪个html文件作为打包的模板
             filename: 'home.html',
-            chunks: ['home', 'commonCss', 'dom'] //该html文件使用了哪些入口js文件
+            chunks: ['home', 'commonCss', 'dom', 'http', 'swiper', 'utils'] //该html文件使用了哪些入口js文件
         }),
         new HtmlWebpackPlugin({ //配置html打包的插件
             template: './src/page/login.html', //以哪个html文件作为打包的模板
@@ -117,7 +130,7 @@ module.exports = {
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'), // 启动服务器目录
         compress: true, // 启动gzip
-        port: 10086,// 端口  8080 80  8081 8082
+        port: 10086, // 端口  8080 80  8081 8082
         open: true, // 自动打开服务
         publicPath: '/', // 静态资源查找路径
         openPage: 'advertising.html', // 打开的页面

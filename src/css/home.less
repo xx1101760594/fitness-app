@@ -1,6 +1,118 @@
-body{
-    background-color: rgb(197, 235, 216);
+// 主页
+// 轮播图
+.swiper-container {
+    width: 100%;
+    height: 200px;
+
+    img {
+        width: 100%;
+        height: 200px;
+    }
 }
-div{
-    font-size: 80px;
+
+// main
+
+main {
+    width: 90%;
+    margin: 0 5%;
+    padding-bottom: 92px;
+    font-weight: bold;
+}
+
+.list-item {
+    margin-top: 20px;
+    width: auto;
+    height: 150px;
+    padding-top: 15px;
+}
+
+.list-item1 {
+    margin-top: 20px;
+    width: auto;
+    height: 100px;
+    color: #fff;
+}
+
+.greade {
+    position: relative;
+    flex: 2;
+    background: #54afd9 url('../img/home1.png') no-repeat;
+    background-position: -6px 25px;
+    color: #fff;
+    font-size: 20px;
+    color: rgba(0, 81, 119, 100);
+    border-radius: 15px;
+
+    .rank {
+        position: absolute;
+        right: 15px;
+        bottom: 5px;
+        color: rgba(255, 255, 255, 100);
+        font-size: 80px;
+    }
+}
+
+.card {
+    position: relative;
+    flex: 3;
+    background: #9ed9f7 url('../img/home2.png') no-repeat;
+    background-position: 9px 23px;
+    font-size: 20px;
+    color: rgba(0, 81, 119, 100);
+    border-radius: 15px;
+
+    .isPunch {
+        position: absolute;
+        right: 15px;
+        bottom: 25px;
+        width: 100px;
+        height: 40px;
+        line-height: 33px;
+        border-radius: 20px;
+        color: rgba(0, 78, 115, 100);
+        font-size: 16px;
+        text-align: center;
+        border: 3px solid rgba(0, 81, 119, 100);
+        display: block;
+    }
+}
+
+.data {
+    flex: 1;
+    font-size: 16px;
+    background: url('../img/home3.png') no-repeat;
+    background-position: 0 -14px;
+    border-radius: 15px;
+
+
+}
+
+.badge {
+    position: relative;
+    flex: 1;
+    background: #9dbde3 url('../img/home4.png') no-repeat;
+    color: rgba(0, 81, 119, 100);
+    background-position: 0 -14px;
+    border-radius: 15px;
+    .insignia{
+        position: absolute;
+        right: 15px;
+        bottom: -5px;
+        font-size: 18px;
+        .insigniaNum{
+            font-size: 80px;
+        }
+    }
+}
+
+.xl {
+    background: url('../img/home5.png') no-repeat;
+    background-size: cover;
+    border-radius: 15px;
+}
+
+.hw {
+    background: url('../img/home6.png') no-repeat;
+    background-size: cover;
+    border-radius: 15px;
 }
