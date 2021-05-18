@@ -23,23 +23,24 @@ document.ready(function () {
     let dataId = JSON.parse(localStorage.getItem('user'));
 
     function homeData(){
-        if(dataId){
             $http.get('/headPageInfo?userId='+dataId.userId,res=>{
-                rank.textContent=res.data.rank;
-                punchIn.textContent=res.data.punchIn;
-                insigniaNum.textContent=res.data.insigniaNum;
+                if(res.status==0){
+                    rank.textContent=res.data.rank;
+                    punchIn.textContent=res.data.punchIn;
+                    insigniaNum.textContent=res.data.insigniaNum;
+                }else{
+                    utils.toast(1,'数据错误请重新登录');
+                        setTimeout(function(){
+                            location.href='./login.html';
+                        },2000) 
+                };
                 if ('true' === res.data.isPunch) {
                     isPunch.style.display = 'none';
                 }
             })
-        }else{
-            utils.toast(1,'数据错误请重新登录');
-            setTimeout(function(){
-                location.href='./login.html';
-            },2000)
-        }
+
     }
-    homeData()
+    homeData();
     // 打卡点击事件
     isPunch.addEventListener('click',function(ev){
         $http.get('/clockIn?userId='+dataId.userId,res1=>{
@@ -49,5 +50,4 @@ document.ready(function () {
             }
         })
     })
-
 })
