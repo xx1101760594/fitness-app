@@ -30,7 +30,9 @@ module.exports = {
         advertising: './src/js/advertising.js',
         about: './src/js/about.js',
         exercise: './src/js/exercise.js',
-        information: './src/js/information.js'
+        information: './src/js/information.js',
+        datail: './src/js/datail.js',
+        player:'./src/js/player.js'
     },
 
     // 出口  生成的js文件
@@ -90,6 +92,16 @@ module.exports = {
     // 插件
     plugins: [
         new HtmlWebpackPlugin({ //配置html打包的插件
+            template: './src/page/player.html', //以哪个html文件作为打包的模板
+            filename: 'player.html',
+            chunks: ['player', 'commonCss', 'dom', 'utils', 'http'] //该html文件使用了哪些入口js文件
+        }),
+        new HtmlWebpackPlugin({ //配置html打包的插件
+            template: './src/page/datail.html', //以哪个html文件作为打包的模板
+            filename: 'datail.html',
+            chunks: ['datail', 'commonCss', 'dom', 'utils', 'http'] //该html文件使用了哪些入口js文件
+        }),
+        new HtmlWebpackPlugin({ //配置html打包的插件
             template: './src/page/information.html', //以哪个html文件作为打包的模板
             filename: 'information.html',
             chunks: ['information', 'commonCss', 'dom', 'utils', 'http', 'weui'] //该html文件使用了哪些入口js文件
@@ -97,7 +109,7 @@ module.exports = {
         new HtmlWebpackPlugin({ //配置html打包的插件
             template: './src/page/exercise.html', //以哪个html文件作为打包的模板
             filename: 'exercise.html',
-            chunks: ['exercise', 'commonCss', 'dom', 'utils'] //该html文件使用了哪些入口js文件
+            chunks: ['exercise', 'commonCss', 'dom', 'utils', 'http'] //该html文件使用了哪些入口js文件
         }),
         new HtmlWebpackPlugin({ //配置html打包的插件
             template: './src/page/about.html', //以哪个html文件作为打包的模板

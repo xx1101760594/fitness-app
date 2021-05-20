@@ -7,6 +7,7 @@ utils.testTell = function (data) {
     let reg = /^1[3|4|5|6|7|8|9][0-9]{9}$/;
     return reg.test(data)
 }
+
 // 提示框toast status 0为勾 1为叉
 utils.toast = function (status, msg) {
     require('../../fonts/capFont/iconfont.css')
@@ -59,5 +60,44 @@ document.querySelector('body').appendChild(footer);
 
 
 }
+
+
+/* 
+@dateFormat 格林威治时间格式转换为标准时间
+@date   格林威治时间
+@return string（）2021-05-07 10:39:18
+*/
+utils.dateFormat = function (date) {
+    //获取年月日分秒
+    let y = date.getFullYear();//年
+    let m = date.getMonth() + 1;//月
+    let d = date.getDate();//日期
+    let h = date.getHours();//小时
+    let min = date.getMinutes();//分钟
+    let s = date.getSeconds();//秒
+    //添0补齐
+    y = y < 10 ? '0' + y : y;
+    m = m < 10 ? '0' + m : m;
+    d = d < 10 ? '0' + d : d;
+    h = h < 10 ? '0' + h : h;
+    min = min < 10 ? '0' + min : min;
+    s = s < 10 ? '0' + s : s;
+    // return `${y}-${m}-${d} ${h}:${min}:${s}`
+    return `${y}年${m}月${d}日`;
+}
+
+// location.search 值转换为对象
+utils.stringToObj=function(str){
+    let str1=str.substr(1);
+    let arr=str1.split('&');
+    let obj={};
+    arr.forEach(function(item,index){
+       let arr1=item.split('=');
+       obj[arr1[0]]=arr1[1]
+    })
+    return obj;
+}
+
+
 
 window.utils = utils;

@@ -92,4 +92,5 @@ function $updateFile(url, fdKey, fdValue, success) {
 }
 
 window.$http = $http;
-window.$updateFile = $updateFile
+window.$updateFile = $updateFile;
+window.BASE_URL=BASE_URL;
