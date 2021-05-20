@@ -37,6 +37,9 @@ document.ready(function () {
                 if ('true' === res.data.isPunch) {
                     isPunch.style.display = 'none';
                 }
+                if(res.data.rank>999){
+                    rank.style.fontSize='50px'
+                }
             })
 
     }

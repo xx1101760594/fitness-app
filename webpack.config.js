@@ -22,13 +22,15 @@ module.exports = {
         // 第三方插件js
         captcha: './src/lib/captcha-mini.js',
         swiper: './src/lib/swiper/swiper-bundle.js',
+        weui: './src/lib/weui/weui.js',
         // 自己的js
         home: './src/js/home.js',
         login: './src/js/login.js',
         pref: './src/js/pref.js',
         advertising: './src/js/advertising.js',
         about: './src/js/about.js',
-        exercise: './src/js/exercise.js'
+        exercise: './src/js/exercise.js',
+        information: './src/js/information.js'
     },
 
     // 出口  生成的js文件
@@ -88,6 +90,11 @@ module.exports = {
     // 插件
     plugins: [
         new HtmlWebpackPlugin({ //配置html打包的插件
+            template: './src/page/information.html', //以哪个html文件作为打包的模板
+            filename: 'information.html',
+            chunks: ['information', 'commonCss', 'dom', 'utils', 'http', 'weui'] //该html文件使用了哪些入口js文件
+        }),
+        new HtmlWebpackPlugin({ //配置html打包的插件
             template: './src/page/exercise.html', //以哪个html文件作为打包的模板
             filename: 'exercise.html',
             chunks: ['exercise', 'commonCss', 'dom', 'utils'] //该html文件使用了哪些入口js文件
@@ -95,7 +102,7 @@ module.exports = {
         new HtmlWebpackPlugin({ //配置html打包的插件
             template: './src/page/about.html', //以哪个html文件作为打包的模板
             filename: 'about.html',
-            chunks: ['about', 'commonCss', 'dom', 'utils'] //该html文件使用了哪些入口js文件
+            chunks: ['about', 'commonCss', 'dom', 'utils', 'http'] //该html文件使用了哪些入口js文件
         }),
         new HtmlWebpackPlugin({ //配置html打包的插件
             template: './src/page/home.html', //以哪个html文件作为打包的模板
