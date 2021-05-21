@@ -18,7 +18,7 @@ document.ready(function () {
             clearInterval(timeId)
         }
     }, 1000);
-    // 点击跳转
+    点击跳转
     sBox2.addEventListener('click', function (event) {
         if (localStorage.getItem('user')) {
             location.href = './home.html';
