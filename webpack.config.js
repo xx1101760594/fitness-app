@@ -32,7 +32,8 @@ module.exports = {
         exercise: './src/js/exercise.js',
         information: './src/js/information.js',
         datail: './src/js/datail.js',
-        player:'./src/js/player.js'
+        player:'./src/js/player.js',
+        data:'./src/js/data.js'
     },
 
     // 出口  生成的js文件
@@ -91,6 +92,11 @@ module.exports = {
     },
     // 插件
     plugins: [
+        new HtmlWebpackPlugin({ //配置html打包的插件
+            template: './src/page/data.html', //以哪个html文件作为打包的模板
+            filename: 'data.html',
+            chunks: ['data', 'commonCss', 'dom', 'utils', 'http'] //该html文件使用了哪些入口js文件
+        }),
         new HtmlWebpackPlugin({ //配置html打包的插件
             template: './src/page/player.html', //以哪个html文件作为打包的模板
             filename: 'player.html',

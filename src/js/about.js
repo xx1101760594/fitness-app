@@ -11,7 +11,8 @@ document.ready(function () {
     let totalDom = document.querySelector('.total span');
     let weekDom = document.querySelector('.week span');
     let userDom=document.querySelector('.user');
-    let userFileDom=document.querySelector('#user-file')
+    let userFileDom=document.querySelector('#user-file');
+    let dataDom=document.querySelector('.data');
 
 
     // 获取本地数据
@@ -75,11 +76,16 @@ document.ready(function () {
     // 点击退出按钮
     cuitDom.addEventListener('click', function (ev) {
         localStorage.removeItem('user');
+        localStorage.removeItem('videoList');
         location.href = './login.html';
 
     })
 
+// 跳转网页
+dataDom.addEventListener('click',function(ev){
 
+    location.href='./data.html'
+})
 
 
 

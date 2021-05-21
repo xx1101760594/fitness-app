@@ -1,33 +1,43 @@
-.ctrl-box{
+body {
+    position: relative;
+}
+
+.ctrl-box {
     position: relative;
     line-height: 90px;
     height: 90px;
 }
-.video-box{
+
+.video-box {
     position: relative;
     background-color: #000;
 }
-#video-player{
-    
-    margin-top: calc(50% - 100px);
 
+#video-player {
+    position: absolute;
+    top: 35%;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
-.excerpt{
+
+.excerpt {
     position: absolute;
     bottom: 10px;
     width: 100%;
     padding: 0 20px;
     color: #fff;
-    .num-excerpt{
+
+    .num-excerpt {
         font-size: 60px;
         height: 100px;
         line-height: 100px;
-        font-weight: 600;   
+        font-weight: 600;
     }
 
 }
 
-.icon-btn{
+.icon-btn {
     flex: 1;
     font-size: 44px;
     text-align: center;
@@ -35,19 +45,96 @@
 
 
 
-.progress{
+.progress {
     position: absolute;
     top: 0;
     left: 0;
     width: 100px;
     height: 90px;
-    background-color:#99CCFF;
+    background-color: #99CCFF;
 }
 
-.icon{
+.icon {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 90px;
+}
+
+.modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    padding: 30px;
+    background-color: rgba(34, 34, 34, .8);
+    color: #fff;
+    display: none;
+
+    h4 {
+        text-align: center;
+    }
+
+    .state {
+        position: absolute;
+        top: calc(50% - 150px);
+        left: calc(50% - 150px);
+        width: 300px;
+        height: 300px;
+
+        ul {
+            justify-content: space-around;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        li {
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            border-radius: 50%;
+            background-color: #00ff99;
+
+            i {
+                font-size: 40px;
+            }
+        }
+
+        .right-btn {
+            background: #fc4e4e;
+        }
+
+        .state-img {
+            width: 250px;
+            height: 100px;
+            border: 1px solid #fff;
+            border-radius: 15px;
+            margin: auto;
+            overflow: hidden;
+            text-align: center;
+
+            .img-box {
+                width: 120px;
+                height: 100px;
+                overflow: hidden;
+
+                #vedio-img {
+                    object-fit: cover;
+                    width: 120px;
+                    height: 100px;
+                }
+            }
+
+            .text-box {
+                padding-top: 30px;
+            }
+
+            p {
+                font-size: 14px;
+                line-height: 30px;
+            }
+        }
+    }
 }

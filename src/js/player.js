@@ -11,6 +11,11 @@ document.ready(function () {
     let stopBtn = document.querySelector('#stop');
     let nextBtn = document.querySelector('#next');
     let progressDom = document.querySelector('.progress');
+    let modalDom = document.querySelector('.modal');
+    let continueBtn = document.querySelector('#continue-btn');
+    let endBtn = document.querySelector('#end-btn');
+    let vedioImgDom = document.querySelector('#vedio-img');
+    let vedioTextDom = document.querySelector('#vedio-text');
 
     let videoList = JSON.parse(localStorage.getItem('videoList'));
     // 当前视频索引值
@@ -37,7 +42,7 @@ document.ready(function () {
             autoplay();
         }
     });
-    nextBtn.addEventListener('click', function(ev) {
+    nextBtn.addEventListener('click', function (ev) {
         if (videoIndex < videoList.length - 1) {
             videoIndex++;
             autoplay();
@@ -45,27 +50,42 @@ document.ready(function () {
     })
     // 自动播放
 
-    setInterval(function(){
+    setInterval(function () {
         videoPlayerDom.duration;
         videoPlayerDom.currentTime;
-        let currentTime=videoPlayerDom.currentTime;
-        let totalTime=videoPlayerDom.duration;
-        let width=document.body.offsetWidth;
-        let progress=width*(currentTime/totalTime)
-        console.log(progress);
+        let currentTime = videoPlayerDom.currentTime;
+        let totalTime = videoPlayerDom.duration;
+        let width = document.body.offsetWidth;
+        let progress = width * (currentTime / totalTime)
+        // console.log(progress);
         // console.log(document.body.offsetWidth);
         // console.log(videoPlayerDom.duration);
         // console.log(videoPlayerDom.currentTime);
-        progressDom.style.width=progress+'px';
+        progressDom.style.width = progress + 'px';
 
 
-    },30)
+    }, 30);
+    //暂停事件
+    stopBtn.addEventListener('click', function (ev) {
+        // 渲染数据
+        vedioImgDom.src=BASE_URL+videoList[videoIndex].imgUrl;
+        vedioTextDom.textContent=videoList[videoIndex].title;
+        // 暂停视频 显示模态框
+        videoPlayerDom.pause();
+        modalDom.style.display = 'block';
+    })
+
+    // 继续播放
+    continueBtn.addEventListener('click',function(ev){
+        videoPlayerDom.play();
+        modalDom.style.display = 'none';
+    })
 
 
-
-
-
-
+    // 停止播放
+    endBtn.addEventListener('click',function(ev){
+        location.href='./exercise.html'
+    })
 
 
 })
