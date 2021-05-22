@@ -33,7 +33,6 @@ body {
     .userText {
         margin: 10px 0;
         color: rgba(138, 138, 138, 100);
-        font-size: 18px;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
@@ -162,8 +161,10 @@ body {
 // 退出按钮
 .cuit {
     flex: 0.7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
-    line-height: 40px;
     color: rgba(66, 148, 255, 100);
     font-size: 18px;
 }
