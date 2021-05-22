@@ -25,7 +25,12 @@ document.ready(function () {
     let times=utils.dateFormat(time)
 
     birthdayValDom.textContent=times;
-    let arr=user.address.split(',');
+    let arr=[];
+    if(user.address){
+        arr=user.address.split(',');
+    }else{
+        arr=['北京市','东城区']
+    }
     provinceValDom.textContent=arr[0];
     cityValDom.textContent=arr[1];
     
@@ -34,7 +39,7 @@ document.ready(function () {
         userId: user.userId,
         gender: user.gender,
         birthday: user.birthday,
-        address: []
+        address: ['北京市','东城区']
     }
 
 
