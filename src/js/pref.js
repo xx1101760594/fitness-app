@@ -42,11 +42,11 @@ document.ready(function (ev) {
         }
         $http.post('/users/add', data, res => {
             if (res.status === 0) {
-                utils.toast(0, '注册成功，正在跳转');
+                utils.toast(0, '注册成功');
                 // 登录
                 $http.post('/users/login', data, res1 => {
-                    localStorage.setItem('user',res1.data.user)
-                    跳转首页
+                    localStorage.setItem('user',JSON.stringify(res1.data.user));
+                    // 跳转首页
                     setTimeout(function () {
                         location.href = './home.html'
                     }, 2000)
